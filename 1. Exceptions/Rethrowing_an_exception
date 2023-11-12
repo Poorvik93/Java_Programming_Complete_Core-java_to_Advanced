@@ -1,0 +1,62 @@
+package com.exception.practices;
+
+import java.util.Scanner;
+
+// Demonstrating rethrowing an exception
+public class ShoppingApp {
+
+	public static void main(String[] args) {
+		// Initiating the shopping process
+		shop();
+	}
+
+	// Method to simulate the shopping process
+	public static void shop() {
+		try {
+			// Initiating the payment process
+			pay();
+			System.out.println("Thank You for Shopping.");
+		} catch (Exception e) {
+			// Handling the exception in the shop method
+			System.out.println("Exception is Handled by shop method.");
+			System.out.println("Shopping is failed.");
+		}
+	}
+
+	// Method to simulate the payment process
+	public static void pay() throws Exception {
+		try {
+			// Requesting the user to enter the payment amount
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Please enter the amount.");
+			int amt = sc.nextInt();
+
+			// Simulating a successful payment
+			System.out.println("Payment successful of amount " + amt);
+
+			// Closing the Scanner
+			sc.close();
+		} catch (Exception e) {
+			// Handling the exception in the pay method and rethrowing it
+			System.out.println("Exception is handled in the pay method.");
+			throw e;
+		}
+	}
+}
+
+//Explanation of the comments:
+//
+//1. **Class Comment:**
+//   - A comment at the beginning of the file explains that the code is demonstrating the concept of rethrowing an exception.
+//
+//2. **Main Method Comment:**
+//   - A comment indicates that the `main` method initiates the shopping process.
+//
+//3. **Shop Method Comment:**
+//   - Comments explain that the `shop` method catches exceptions thrown by the `pay` method and handles them.
+//
+//4. **Pay Method Comment:**
+//   - Comments describe that the `pay` method simulates the payment process, prompts the user for an amount, and handles exceptions by rethrowing them.
+//
+//5. **Exception Handling Comments:**
+//   - Comments inside catch blocks explain how exceptions are handled at different levels.
