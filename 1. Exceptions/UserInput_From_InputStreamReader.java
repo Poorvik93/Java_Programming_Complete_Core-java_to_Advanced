@@ -1,7 +1,7 @@
 package com.exception.practices;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.InputStreamReader; 
 
 /**
  * A simple program demonstrating user input using InputStreamReader and BufferedReader.
@@ -30,7 +30,8 @@ public class UserInput_From_InputStreamReader {
      * @return The string entered by the user.
      * @throws Exception If an error occurs while reading input.
      */
-    public static String takeInput() throws Exception {
+    public static String takeInput() throws Exception // It means ducking an exception 
+    { 
         // Creating InputStreamReader to read from the standard input stream
         InputStreamReader isr = new InputStreamReader(System.in);
 
