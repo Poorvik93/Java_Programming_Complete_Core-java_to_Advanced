@@ -1,0 +1,82 @@
+package com.exception.customexception.practice;
+
+import java.util.Scanner;
+
+/**
+ * A simple banking application demonstrating a custom exception (InsufficientBalanceException).
+ */
+public class BankApp {
+
+    public static void main(String[] args) {
+        try {
+            // Creating a Scanner to take user input
+            Scanner sc = new Scanner(System.in);
+            
+            // Prompting the user to enter the amount to be withdrawn
+            System.out.println("Enter the amount to be withdrawn:");
+            
+            // Reading the user input for the withdrawal amount
+            int amt = sc.nextInt();
+            
+            // Calling the withdraw method
+            withdraw(amt);
+            
+            // Closing the Scanner
+            sc.close();
+        } catch (InsufficientBalanceException ibe) {
+            // Handling the custom exception (InsufficientBalanceException)
+            System.out.println("Custom Exception is handled.");
+            ibe.printStackTrace();
+        }
+    }
+
+    /**
+     * Method to simulate a withdrawal from a bank account.
+     *
+     * @param amt The amount to be withdrawn.
+     * @throws InsufficientBalanceException If the withdrawal amount exceeds the available balance.
+     */
+    public static void withdraw(int amt) throws InsufficientBalanceException {
+        // Assuming an initial balance of 5000
+        int balance = 5000;
+        
+        // Checking if the withdrawal amount is within the available balance
+        if (amt <= balance) {
+            System.out.println("Amount is withdrawn");
+        } else {
+            // Throwing a custom exception if the withdrawal amount exceeds the available balance
+            throw new InsufficientBalanceException();
+        }
+    }
+}
+
+////--------------------------------------------------------------------------------
+package com.exception.customexception.practice;
+
+/**
+ * Custom exception class (InsufficientBalanceException) extending the Exception class.
+ */
+public class InsufficientBalanceException extends Exception {
+
+    /**
+     * Constructor for the custom exception class.
+     */
+    public InsufficientBalanceException() {
+        super("Enter the amount less than the balance.");
+    }
+}
+
+
+// Explanation of comments:
+
+// 1. **BankApp Class Comment:**
+//    - A comment at the beginning of the file explains that the program is a simple banking application demonstrating a custom exception (`InsufficientBalanceException`).
+
+// 2. **Main Method Comment:**
+//    - Comments in the `main` method explain the process of taking user input for a withdrawal amount, calling the `withdraw` method, and handling the custom exception.
+
+// 3. **Withdraw Method Comment:**
+//    - Comments in the `withdraw` method describe the simulation of a withdrawal, checking the available balance, and throwing a custom exception if the withdrawal amount exceeds the balance.
+
+// 4. **InsufficientBalanceException Class Comment:**
+//    - A comment at the beginning of the `InsufficientBalanceException` class explains that it is a custom exception class extending the `Exception` class.
