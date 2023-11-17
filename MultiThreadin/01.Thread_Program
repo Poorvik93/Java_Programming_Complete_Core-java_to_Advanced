@@ -1,0 +1,38 @@
+package com.multithread.thread.com;
+
+// Program1 class extends Thread to create a new thread
+public class Program1 extends Thread {
+
+    // The run method is the entry point for the new thread
+    public void run() {
+        // Get the reference to the currently executing thread (new thread)
+        Thread currentThread = Thread.currentThread();
+
+        // Display information about the new thread
+        System.out.println("New Thread: " + currentThread);
+    }
+}
+
+package com.multithread.thread.com;
+
+//Main class for the application
+public class Program1App {
+
+ // Main method, the entry point of the program
+ public static void main(String[] args) {
+     // Get the reference to the currently executing thread (main thread)
+     Thread mainThread = Thread.currentThread();
+     
+     // Display information about the main thread
+     System.out.println("Main Thread: " + mainThread);
+
+     // Create an instance of Program1 class
+     Program1 programThread = new Program1();
+     
+     // Set the name of the new thread
+     programThread.setName("Program");
+
+     // Start the new thread
+     programThread.start();
+ }
+}
